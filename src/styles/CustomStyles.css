@@ -1,0 +1,259 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+
+html {
+    overflow-x: hidden;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    color: #4e4d4f;
+    font-size: 1.125rem;
+    line-height: 1.5;
+    background-color: #f3f4fa;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: unset;
+}
+
+img {
+    width: 100%;
+}
+
+ul,
+li {
+    list-style-type: none;
+}
+
+.main {
+    padding-left: 384px;
+    overflow-x: hidden;
+}
+
+.main__content {
+    min-height: 100vh;
+    padding: 48px;
+    transition: all 0.5s ease-in-out;
+}
+
+.sidebar-open .main__content {
+    height: 100vh;
+    overflow: hidden;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+    transform: scale(0.8) translateX(50%);
+    transition: all 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 1366px) {
+    .main {
+        padding-left: 0;
+        width: 100%;
+    }
+
+    .main__content {
+        padding: 24px;
+        position: relative;
+        background-color: #f3f4fa;
+        z-index: 2;
+    }
+}
+
+.sidebar {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-direction: column;
+    color: #4e4d4f;
+    width: 384px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    z-index: 1;
+}
+
+.sidebar-close {
+    display: none;
+}
+
+.sidebar__menu {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.sidebar__menu__item {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    margin-bottom: 16px;
+    padding-left: 20%;
+    transition: color 0.3s ease-in-out;
+    color: rgb(234, 88, 12);
+}
+
+.sidebar__menu__item:hover {
+    color: rgb(234, 88, 12);
+}
+
+.sidebar__menu__item.active {
+    font-weight: 700;
+    color: rgb(234, 88, 12);
+}
+
+.sidebar__menu__item.active::before {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 5px;
+    left: 0;
+    top: 0;
+    background-color: rgb(234, 88, 12);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.sidebar__menu__item__icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sidebar__menu__item__icon i {
+    font-size: 16px;
+}
+
+.sidebar__menu__item:last-child {
+    margin-top: auto;
+    cursor: pointer;
+}
+
+.sidebar__menu__item:last-child:hover {
+    color: rgb(234, 88, 12);
+}
+
+.sidebar__menu__item__logout:hover {
+    color: rgb(234, 88, 12);
+}
+
+.sidebar__menu__item-register:hover,
+.sidebar__menu__item-login:hover {
+    color: rgb(234, 88, 12);
+    font-weight: 700;
+    transition: all 0.3s ease-in;
+}
+
+@media screen and (max-width: 1366px) {
+    .sidebar {
+        width: 100vw;
+        color: #fff;
+        z-index: 1;
+    }
+
+    .sidebar__logo {
+        justify-content: space-between;
+        /* height: (171px / 1.8); */
+        padding: 0 24px;
+        margin-bottom: 24px;
+    }
+
+    .sidebar-close {
+        display: block;
+    }
+
+    .sidebar__menu__item {
+        padding-left: 24px;
+    }
+
+    .sidebar__menu__item__icon {
+        margin-right: 1rem;
+    }
+}
+
+.sidebar-toggle {
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    display: none;
+}
+
+@media screen and (max-width: 1366px) {
+    .topnav {
+        margin-bottom: 24px;
+    }
+
+    .sidebar-toggle {
+        display: flex;
+    }
+}
+
+.tooltip {
+    position: relative;
+}
+
+.tooltiptext {
+    visibility: hidden;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    font-size: 10px;
+    border-radius: 6px;
+    padding: 2px 5px;
+
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -15px;
+    z-index: 2;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.alert {
+    animation: toast-in-right 0.7s;
+}
+
+.alert-danger {
+    background: #d9534f;
+}
+
+.alert-danger .danger {
+    display: block;
+}
+
+.alert-danger .success {
+    display: none;
+}
+
+.alert-success {
+    background: #5cb85c;
+}
+
+.alert-success .success {
+    display: block;
+}
+
+.alert-success .danger {
+    display: none;
+}
+
+@keyframes toast-in-right {
+    from {
+        transform: translateX(100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
